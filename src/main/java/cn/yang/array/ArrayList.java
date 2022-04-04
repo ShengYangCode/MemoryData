@@ -1,5 +1,7 @@
 package cn.yang.array;
 
+import cn.yang.common.AbstractList;
+
 /**
  * ArrayList
  *
@@ -7,12 +9,9 @@ package cn.yang.array;
  * @date 2022/3/28
  */
 @SuppressWarnings("unchecked")
-public class ArrayList<E> {
+public class ArrayList<E> extends AbstractList<E> {
 
-    /**
-     * 元素个数
-     */
-    private int size;
+
 
     /**
      * 动态数组
@@ -24,10 +23,7 @@ public class ArrayList<E> {
      */
     private static final int DEFAULT_CAPACITY = 10;
 
-    /**
-     * 没有查找到返回的数字
-     */
-    private static final int ELEMENT_NOT_FOUND = -1;
+
 
     public ArrayList(int capacity) {
         capacity = Math.max(capacity, DEFAULT_CAPACITY);
@@ -47,30 +43,7 @@ public class ArrayList<E> {
         return size;
     }
 
-    /**
-     * 数组是否为空
-     * @return boolean
-     */
-    public boolean isEmpty() {
-        return size == 0;
-    }
 
-    /**
-     * 是否包含元素
-     * @param element
-     * @return
-     */
-    public boolean contains(E element) {
-        return indexOf(element) != ELEMENT_NOT_FOUND;
-    }
-
-    /**
-     * 添加元素到数组最后位置
-     * @param element 要添加的元素
-     */
-    public void add(E element) {
-        add(size, element);
-    }
 
     /**
      * 添加元素
@@ -183,19 +156,7 @@ public class ArrayList<E> {
     }
 
 
-    private void checkIndex(int idx) {
-        if (idx < 0 || idx >= size) {
-            throw new IllegalArgumentException("下标越界");
-        }
 
-    }
-
-    private void checkAddIndex(int idx) {
-        if (idx < 0 || idx > size) {
-            throw new IllegalArgumentException("下标越界");
-        }
-
-    }
 
     @Override
     public String toString() {
